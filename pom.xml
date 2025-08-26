@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>POC</name>
+				<name>POC</name>
 	<description>POC project for provisioning</description>
 	<url/>
 	<licenses>
@@ -32,6 +32,8 @@
 		<spring-cloud-azure.version>4.11.0</spring-cloud-azure.version>
 	</properties>
 	<dependencies>
+		
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -48,17 +50,30 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<!-- AWS SDK dependencies -->
+		<dependency>
+				<groupId>software.amazon.awssdk</groupId>
+				<artifactId>bom</artifactId>
+				<version>2.17.92</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>software.amazon.awssdk</groupId>
 				<artifactId>eks</artifactId>
+				<version>2.17.92</version>
 			</dependency>
 			<dependency>
 				<groupId>software.amazon.awssdk</groupId>
 				<artifactId>ec2</artifactId>
+				<version>2.17.92</version>
 			</dependency>
 			<dependency>
 				<groupId>software.amazon.awssdk</groupId>
@@ -70,12 +85,25 @@
 				<artifactId>spring-cloud-azure-starter</artifactId>
 				<version>${spring-cloud-azure.version}</version>
 			</dependency>
-			
-			
+			<dependency>
+				<groupId>com.azure.resourcemanager</groupId>
+				<artifactId>azure-resourcemanager</artifactId>
+				<version>2.30.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.azure.resourcemanager</groupId>
+				<artifactId>azure-resourcemanager-compute</artifactId>
+				<version>2.30.0</version>
+			</dependency>
+			<dependency>
+				<groupId>com.azure.resourcemanager</groupId>
+				<artifactId>azure-resourcemanager-network</artifactId>
+				<version>2.30.0</version>
+			</dependency>
 			<dependency>
 				<groupId>com.azure</groupId>
 				<artifactId>azure-identity</artifactId>
-				<version>1.5.0</version> 
+				<version>1.9.0</version>
 			</dependency>
 		
 	</dependencies>
@@ -108,14 +136,10 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
-			</plugin>
-			 <plugin>
-				<groupId>com.azure.tools</groupId>
-				<artifactId>azure-sdk-build-tool</artifactId>
-				<version>{latest_version}</version>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
